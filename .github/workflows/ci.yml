@@ -2,8 +2,8 @@ name: Tarea Automatizada de ejecución de pruebas
 
 env:
   DOTNET_VERSION: '8.x'                     # la versión de .NET
-  SONAR_ORG: 'p-cuadros'                    # Nombre de la organización de sonar cloud
-  SONAR_PROJECT: 'p-cuadros_bancaapp'        # Key ID del proyecto de sonar
+  SONAR_ORG: 'jesushuallpaepis3'                    # Nombre de la organización de sonar cloud
+  SONAR_PROJECT: 'jesushuallpaepis3_bancaapp'        # Key ID del proyecto de sonar
 on:
   push:
     branches: [ "main" ]
@@ -49,9 +49,9 @@ jobs:
         run: dotnet tool install -g dotnet-sonarscanner
       - name: Ejecutar escaneo
         run: | 
-          dotnet-sonarscanner begin /k:"${{ env.SONAR_PROJECT }}" /o:"${{ env.SONAR_ORG }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet-sonarscanner begin /k:"${{ env.BancaApp }}" /o:"${{ env.jesushuallpaepis3 }}" /d:sonar.login="${{ secrets.119e3fa2ea64c3f2ae45bdff2908188e38293d9f }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build
-          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet-sonarscanner end /d:sonar.login="${{ secrets.119e3fa2ea64c3f2ae45bdff2908188e38293d9f }}"
       - name: Install Living Doc
         run: dotnet tool install -g SpecFlow.Plus.LivingDoc.CLI
       - name: Generate living doc
